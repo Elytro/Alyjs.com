@@ -1,1 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>阿里云静态资源库 | Alyjs.com</title>
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
+  <style>
+    html, body {
+      height: 100%;
+      background: #fff;
+      color: #333;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: #0074d9;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #0050a0;
+      text-decoration: underline;
+    }
+    .navbar {
+      background: #fff;
+      border: none;
+      margin-bottom: 0;
+      padding: 20px 0;
+    }
+    .navbar-brand {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #333 !important;
+    }
+    .hero {
+      text-align: center;
+      padding: 100px 0 60px;
+    }
+    .hero h1 {
+      font-size: 64px;
+      font-weight: 700;
+      letter-spacing: -2px;
+      color: #111;
+      margin-bottom: 10px;
+    }
+    .hero .tagline {
+      font-size: 20px;
+      color: #888;
+      font-weight: 300;
+      margin-bottom: 40px;
+    }
+    .url-bar {
+      display: inline-block;
+      background: #f7f7f7;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 14px 24px;
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+      font-size: 16px;
+      color: #333;
+      word-break: break-all;
+      max-width: 100%;
+      transition: border-color 0.2s;
+    }
+    .url-bar:hover {
+      border-color: #ccc;
+    }
+    .url-bar .domain {
+      color: #0074d9;
+    }
+    .url-bar .sep {
+      color: #ccc;
+    }
+    .section {
+      padding: 60px 0;
+      border-top: 1px solid #f0f0f0;
+    }
+    .section h2 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .section p {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.8;
+    }
+    .code-block {
+      background: #f8f8f8;
+      border: 1px solid #eee;
+      border-radius: 3px;
+      padding: 16px 20px;
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+      font-size: 13px;
+      color: #333;
+      overflow-x: auto;
+      margin: 12px 0;
+      white-space: pre;
+    }
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+    .feature-list li {
+      padding: 8px 0;
+      font-size: 15px;
+      color: #555;
+    }
+    .feature-list li:before {
+      content: "— ";
+      color: #ccc;
+    }
+    .footer {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid #f0f0f0;
+      color: #bbb;
+      font-size: 13px;
+    }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 42px;
+      }
+      .hero {
+        padding: 60px 0 40px;
+      }
+      .section {
+        padding: 40px 0;
+      }
+    }
+  </style>
+</head>
+<body>
 
+  <!-- Nav -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Alyjs</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="container">
+      <h1>Alyjs</h1>
+      <p class="tagline">快速、极简的前端资源 CDN</p>
+      <div class="url-bar">
+        <span class="domain">alyjs.com</span><span class="sep">/</span>npm包名<span class="sep">@</span>版本<span class="sep">/</span>文件路径
+      </div>
+      <p style="margin-top:18px;color:#aaa;font-size:13px;">为开发者而生，毫秒级响应</p>
+    </div>
+  </div>
+
+  <!-- 快速开始 -->
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2>快速开始</h2>
+          <p>在您的 HTML 中直接引用任意 npm 包中的文件，无需构建工具。</p>
+          <div class="code-block">&lt;script src="https://alyjs.com/jquery@3.7.1/dist/jquery.min.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="https://alyjs.com/bootstrap@5.3.0/dist/css/bootstrap.min.css"&gt;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 特性 -->
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2>特性</h2>
+          <ul class="feature-list">
+            <li>全球 CDN 加速，毫秒级加载</li>
+            <li>自动处理 package.json 中的 main / module 入口</li>
+            <li>支持语义化版本范围 (^1.0.0, ~2.1.x)</li>
+            <li>启用 Brotli &amp; Gzip 压缩</li>
+            <li>强缓存策略，最大化加载速度</li>
+            <li>永久托管，已发布的版本不会删除</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 查询参数 -->
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2>URL 结构</h2>
+          <div class="table-responsive">
+            <table class="table" style="border:1px solid #eee;">
+              <thead>
+                <tr style="background:#fafafa;">
+                  <th style="border-bottom:1px solid #eee;">参数</th>
+                  <th style="border-bottom:1px solid #eee;">说明</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-family:monospace;color:#0074d9;">:package</td>
+                  <td>npm 包名称</td>
+                </tr>
+                <tr>
+                  <td style="font-family:monospace;color:#0074d9;">@:version</td>
+                  <td>版本号或语义化范围（可选）</td>
+                </tr>
+                <tr>
+                  <td style="font-family:monospace;color:#0074d9;">/:file</td>
+                  <td>包内的文件路径（可选）</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 示例 -->
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2>常用示例</h2>
+          <p>获取包的最新版本：</p>
+          <div class="code-block">https://alyjs.com/react</div>
+          <p>指定版本：</p>
+          <div class="code-block">https://alyjs.com/react@18.2.0</div>
+          <p>获取包内文件：</p>
+          <div class="code-block">https://alyjs.com/vue@3.4.0/dist/vue.global.prod.js</div>
+          <p>查看目录列表：</p>
+          <div class="code-block">https://alyjs.com/lodash@4.17.21/</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="container">
+      <p>&copy; 2026 Alyjs &nbsp;·&nbsp; 为前端开发者提供极速 CDN 服务</p>
+      <p style="margin-top:8px;">
+        <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow">粤ICP备XXXXXXXX号-X</a>
+        &nbsp;&nbsp;
+        <a href="https://www.beian.gov.cn/" target="_blank" rel="nofollow">
+          粤公网安备 XXXXXXXXXXXXXX 号
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</body>
+</html>

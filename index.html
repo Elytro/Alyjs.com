@@ -1,23 +1,304 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>alyjs.com</title>
-    <style>
-        body { font-family: -apple-system, "Segoe UI", sans-serif; display: flex;
-               min-height: 100vh; align-items: center; justify-content: center;
-               margin: 0; background: #f5f5f5; color: #333; }
-        .card { background: #fff; padding: 3rem 4rem; border-radius: 12px;
-                box-shadow: 0 4px 16px rgba(0,0,0,.08); text-align: center; }
-        h1 { margin: 0 0 .5rem; font-size: 1.6rem; }
-        p { margin: 0; color: #888; }
-    </style>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="alyjs.com">
+<meta name="description" content="alyjs.com — 简洁、高效的在线服务。">
+<title>Alyjs.com</title>
+<link href="https://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+  html, body {
+    height: 100%;
+  }
+  body {
+    background: #fff;
+    color: #222;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
+                 "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  a {
+    color: #222;
+    text-decoration: none;
+    -webkit-transition: color .2s ease;
+            transition: color .2s ease;
+  }
+  a:hover, a:focus {
+    color: #888;
+    text-decoration: none;
+  }
+
+  /* 顶部导航 */
+  .site-nav {
+    background: #fff;
+    border: 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0;
+    border-radius: 0;
+    min-height: 60px;
+  }
+  .site-nav .navbar-brand {
+    height: 60px;
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    color: #222;
+  }
+  .site-nav .nav > li > a {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 14px;
+    color: #555;
+  }
+  .site-nav .nav > li > a:hover,
+  .site-nav .nav > li.active > a {
+    color: #222;
+    background: transparent;
+  }
+  .site-nav .navbar-toggle {
+    margin-top: 13px;
+    border-color: #ddd;
+  }
+  .site-nav .navbar-toggle .icon-bar {
+    background-color: #333;
+  }
+
+  /* 首屏 */
+  .hero {
+    padding: 110px 0 90px;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  .hero h1 {
+    font-size: 40px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin: 0 0 18px;
+  }
+  .hero p.lead {
+    font-size: 16px;
+    color: #777;
+    max-width: 620px;
+    margin: 0 auto 32px;
+  }
+  .hero .btn-plain {
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #333;
+    padding: 10px 28px;
+    border-radius: 2px;
+    font-size: 14px;
+    -webkit-transition: all .2s ease;
+            transition: all .2s ease;
+  }
+  .hero .btn-plain:hover {
+    border-color: #999;
+    color: #000;
+  }
+
+  /* 内容区 */
+  .section {
+    padding: 70px 0;
+  }
+  .section-title {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .section-title h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0 0 10px;
+  }
+  .section-title p {
+    color: #999;
+    font-size: 14px;
+    margin: 0;
+  }
+  .feature {
+    padding: 24px 18px;
+    text-align: center;
+  }
+  .feature .fa {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 16px;
+  }
+  .feature h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+  .feature p {
+    color: #888;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  /* 底部 */
+  .site-footer {
+    border-top: 1px solid #eee;
+    padding: 36px 0 30px;
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+  }
+  .site-footer .footer-links {
+    margin-bottom: 14px;
+  }
+  .site-footer .footer-links a {
+    color: #777;
+    margin: 0 12px;
+  }
+  .site-footer .footer-links a:hover {
+    color: #222;
+  }
+  .site-footer .beian {
+    line-height: 2.2;
+  }
+  .site-footer .beian a {
+    color: #999;
+  }
+  .site-footer .beian a:hover {
+    color: #555;
+  }
+  .site-footer .beian img {
+    width: 14px;
+    height: 14px;
+    vertical-align: -2px;
+    margin-right: 3px;
+  }
+  .copyright {
+    margin-top: 10px;
+    color: #aaa;
+  }
+
+  @media (max-width: 767px) {
+    .hero { padding: 70px 0 60px; }
+    .hero h1 { font-size: 28px; }
+    .section { padding: 50px 0; }
+    .site-footer .footer-links a { margin: 0 8px; }
+  }
+</style>
+<!--[if lt IE 9]>
+  <script src="https://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 </head>
 <body>
-    <div class="card">
-        <h1>alyjs.com</h1>
-        <p>Site initialized by oject.php</p>
+
+<nav class="navbar navbar-default site-nav navbar-static-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+        <span class="sr-only">切换导航</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">alyjs.com</a>
     </div>
+    <div class="collapse navbar-collapse" id="main-nav">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#home">首页</a></li>
+        <li><a href="#services">服务</a></li>
+        <li><a href="#about">关于</a></li>
+        <li><a href="#contact">联系</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="container">
+    <h1>简洁，是一种能力</h1>
+    <p class="lead">alyjs.com 致力于提供轻量、稳定、易用的在线服务，让复杂的事情回归简单。</p>
+    <p><a class="btn-plain" href="#services">了解更多</a></p>
+  </div>
+</header>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>我们提供什么</h2>
+      <p>少即是多，专注做好每一件事</p>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 feature">
+        <i class="fa fa-bolt"></i>
+        <h3>轻量高效</h3>
+        <p>精简的流程与资源占用，快速响应每一次请求。</p>
+      </div>
+      <div class="col-sm-4 feature">
+        <i class="fa fa-shield"></i>
+        <h3>稳定可靠</h3>
+        <p>完善的监控与容错机制，保障服务持续可用。</p>
+      </div>
+      <div class="col-sm-4 feature">
+        <i class="fa fa-cubes"></i>
+        <h3>简单易用</h3>
+        <p>开箱即用的产品体验，无需复杂的学习成本。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about" style="background:#fafafa;border-top:1px solid #f2f2f2;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <h2 style="font-size:22px;font-weight:400;margin:0 0 16px;">关于我们</h2>
+        <p style="color:#777;margin:0;">
+          alyjs.com 是一个专注于提供简洁在线工具的站点。我们相信优秀的产品不需要繁复的装饰，
+          把核心功能做到极致，就是最好的体验。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div class="footer-links">
+      <a href="#home">首页</a>
+      <a href="#services">服务</a>
+      <a href="#about">关于</a>
+      <a href="mailto:hi@alyjs.com">联系我们</a>
+    </div>
+    <div class="beian">
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow">鲁ICP备2025144109号-27</a>
+      <br>
+      <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37130202373077" target="_blank" rel="nofollow">
+        <img src="https://www.beian.gov.cn/img/ghs.png" alt="公安备案标识">鲁公网安备37130202373077号
+      </a>
+    </div>
+    <p class="copyright">&copy; <span id="year">2026</span> alyjs.com 版权所有</p>
+  </div>
+</footer>
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script>
+  $(function () {
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    $('#main-nav a').on('click', function (e) {
+      var target = $($(this).attr('href'));
+      if (target.length) {
+        e.preventDefault();
+        $('html, body').animate({ scrollTop: target.offset().top - 60 }, 400);
+        if ($('.navbar-toggle').is(':visible')) {
+          $('#main-nav').collapse('hide');
+        }
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
